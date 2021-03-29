@@ -15,3 +15,22 @@
   | V2_WS_PATH | 自定义PATH路径 |
   
 感谢P3TERX ：https://p3terx.com/
+
+
+<details>
+<summary>反代代码</summary>
+
+```js
+addEventListener(
+	"fetch",event => {
+		let url=new URL(event.request.url);
+		url.hostname="应用app名";
+		url.pathname ="路径";
+		let request=new Request(url,event.request);
+		event. respondWith(
+			fetch(request)
+		)
+	}
+)
+```
+</details>
