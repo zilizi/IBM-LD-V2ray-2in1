@@ -7,8 +7,8 @@ env:
   IBM_CF_PASSWORD: ${{ secrets.IBM_CF_PASSWORD }}
   IBM_CF_APP_NAME1: ${{ secrets.IBM_CF_APP_NAME1 }}
   IBM_CF_APP_NAME2: ${{ secrets.IBM_CF_APP_NAME2 }}
-  V2_UUID: ${{ secrets.V2_UUID }:-f3a836ba-e93b-4cf3-8ee9-ce37a1e84cd8}
-  V2_WS_PATH: ${{ secrets.V2_WS_PATH }:-/v2ray}
+  V2_UUID: ${{ secrets.V2_UUID }}
+  V2_WS_PATH: ${{ secrets.V2_WS_PATH }}
 
 
 on:
@@ -33,7 +33,7 @@ jobs:
     - name: Login to IBM Cloud Foundry
       run: |
         cf login \
-          -a "${IBM_CF_API}" \
+          -a "${IBM_CF_API:-https://api.eu-gb.cf.cloud.ibm.com}" \
           -u "${IBM_CF_USERNAME}" \
           -p "${IBM_CF_PASSWORD}" \
           -o "${IBM_CF_USERNAME}" \
@@ -66,14 +66,14 @@ jobs:
                 "decryption": "none",
                 "clients": [
                   {
-                    "id": "${V2_UUID}"
+                    "id": "${V2_UUID:-f3a836ba-e93b-4cf3-8ee9-ce37a1e84cd8}"
                   }
                 ]
               },
               "streamSettings": {
                 "network":"ws",
                 "wsSettings": {
-                  "path": "${V2_WS_PATH}"
+                  "path": "${V2_WS_PATH:-/v2ray}"
                 }
               }
             }
@@ -99,7 +99,7 @@ jobs:
               "settings": {
                 "clients": [
                   {
-                    "id": "${V2_UUID}",
+                    "id": "${V2_UUID:-f3a836ba-e93b-4cf3-8ee9-ce37a1e84cd8}",
                     "alterId": 64
                   }
                 ]
@@ -107,7 +107,7 @@ jobs:
               "streamSettings": {
                 "network":"ws",
                 "wsSettings": {
-                  "path": "${V2_WS_PATH}"
+                  "path": "${V2_WS_PATH:-/v2ray}"
                 }
               }
             }
