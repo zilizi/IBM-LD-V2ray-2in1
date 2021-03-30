@@ -1,4 +1,4 @@
-name: IBM Cloud Foundry - V2Ray
+name: test
 
 env:
   IBM_CF_API: https://api.${{ secrets.IBM_CF_REGOIN }:-eu-gb}.cf.cloud.ibm.com
