@@ -2,7 +2,6 @@ name: test
 
 env:
   IBM_CF_REGOIN:  ${{ secrets.IBM_CF_REGOIN }}
-  IBM_CF_API: https://api.${IBM_CF_REGOIN:-us-south}.cf.cloud.ibm.com
   IBM_CF_APP_MEM: ${{ secrets.IBM_CF_APP_MEM }}
   IBM_CF_USERNAME: ${{ secrets.IBM_CF_USERNAME }}
   IBM_CF_PASSWORD: ${{ secrets.IBM_CF_PASSWORD }}
@@ -35,7 +34,7 @@ jobs:
     - name: Login to IBM Cloud Foundry
       run: |
         cf login \
-          -a "${IBM_CF_API}" \
+          -a "https://api.${IBM_CF_REGOIN:-us-south}.cf.cloud.ibm.com" \
           -u "${IBM_CF_USERNAME}" \
           -p "${IBM_CF_PASSWORD}" \
           -o "${IBM_CF_USERNAME}" \
