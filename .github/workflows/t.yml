@@ -9,6 +9,7 @@ env:
   IBM_CF_APP_NAME2: ${{ secrets.IBM_CF_APP_NAME2 }}
   V2_UUID: ${{ secrets.V2_UUID }}
   V2_WS_PATH: ${{ secrets.V2_WS_PATH }}
+  V2_ALTERID: ${{ secrets.V2_ALTERID }}
 
 
 on:
@@ -101,7 +102,7 @@ jobs:
                 "clients": [
                   {
                     "id": "${V2_UUID:-f3a836ba-e93b-4cf3-8ee9-ce37a1e84cd8}",
-                    "alterId": 64
+                    "alterId": "${V2_ALTERID:-64}"
                   }
                 ]
               },
