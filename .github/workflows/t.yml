@@ -1,6 +1,7 @@
 name: test
 
 env:
+  IBM_CF_REGOIN:  ${{ secrets.IBM_CF_REGOIN }}
   IBM_CF_API: ${{ secrets.IBM_CF_API }}
   IBM_CF_APP_MEM: ${{ secrets.IBM_CF_APP_MEM }}
   IBM_CF_USERNAME: ${{ secrets.IBM_CF_USERNAME }}
