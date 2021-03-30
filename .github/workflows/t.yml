@@ -102,7 +102,7 @@ jobs:
                 "clients": [
                   {
                     "id": "${V2_UUID:-f3a836ba-e93b-4cf3-8ee9-ce37a1e84cd8}",
-                    "alterId": "${V2_ALTERID:-64}"
+                    "alterId": ${V2_ALTERID:-64}
                   }
                 ]
               },
