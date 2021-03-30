@@ -1,8 +1,8 @@
 name: test
 
 env:
-  IBM_CF_API: https://api.${{ secrets.IBM_CF_REGOIN }:-eu-gb}.cf.cloud.ibm.com
-  IBM_CF_APP_MEM: ${{ secrets.IBM_CF_APP_MEM }:-128M}
+  IBM_CF_API: https://api.${{ secrets.IBM_CF_REGOIN }}.cf.cloud.ibm.com
+  IBM_CF_APP_MEM: ${{ secrets.IBM_CF_APP_MEM }}
   IBM_CF_USERNAME: ${{ secrets.IBM_CF_USERNAME }}
   IBM_CF_PASSWORD: ${{ secrets.IBM_CF_PASSWORD }}
   IBM_CF_APP_NAME1: ${{ secrets.IBM_CF_APP_NAME1 }}
@@ -123,7 +123,7 @@ jobs:
         cat << 123 > manifest.yml
         applications:
         - name: ${IBM_CF_APP_NAME1}
-          memory: ${IBM_CF_APP_MEM}
+          memory: ${IBM_CF_APP_MEM:-128M}
           random-route: true
           command: base64 -d config1 > config.json; ./${IBM_CF_APP_NAME1} -config=config.json
           buildpacks:
@@ -137,7 +137,7 @@ jobs:
         cat << 123 > manifest.yml
         applications:
         - name: ${IBM_CF_APP_NAME2}
-          memory: ${IBM_CF_APP_MEM}
+          memory: ${IBM_CF_APP_MEM:-128M}
           random-route: true
           command: base64 -d config2 > config.json; ./${IBM_CF_APP_NAME2} -config=config.json
           buildpacks:
