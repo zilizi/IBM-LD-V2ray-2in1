@@ -1,7 +1,7 @@
 name: test
 
 env:
-  IBM_CF_API: https://api.${{ secrets.IBM_CF_REGOIN }}.cf.cloud.ibm.com
+  IBM_CF_API: https://api.eu-gb.cf.cloud.ibm.com
   IBM_CF_APP_MEM: ${{ secrets.IBM_CF_APP_MEM }}
   IBM_CF_USERNAME: ${{ secrets.IBM_CF_USERNAME }}
   IBM_CF_PASSWORD: ${{ secrets.IBM_CF_PASSWORD }}
